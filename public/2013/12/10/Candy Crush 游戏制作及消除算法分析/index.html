@@ -1,0 +1,418 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Candy Crush 游戏制作及消除算法分析 | Software MyZone</title>
+  <meta name="author" content="firedragonpzy">
+  
+  <meta name="description" content="Focus on the development cocos2d-x">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Candy Crush 游戏制作及消除算法分析"/>
+  <meta property="og:site_name" content="Software MyZone"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+<link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="Software MyZone" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Software MyZone</a></h1>
+  <h2><a href="/">cocos2d-x game developer</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-12-10T14:45:45.000Z"><a href="/2013/12/10/Candy Crush 游戏制作及消除算法分析/">12月 10 2013</a></time>
+      
+      
+  
+    <h1 class="title">Candy Crush 游戏制作及消除算法分析</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong><em>本文为firedragonpzy原创,转载务必在明显处注明：<br>        转载自【Softeware MyZone】原文链接: <a href="http://www.firedragonpzy.com.cn/index.php/archives/4119" target="_blank">http://www.firedragonpzy.com.cn/index.php/archives/4119</a></em></strong></p>
+<p>最近做类似Candy Crush的消除类游戏，现在和大家分享下关于candy移动消除这一块，望大神们多多指点……</p>
+<p>首先，移动后candy的消除分为两大类，第一大类就是你移动交换的两个candy发生消除，例如你移动百消球和临近的普通candy进行交换，这时候消除和普通candy颜色一样的candy。</p>
+<p>第二大类是你移动后，相临的大于等于三个candy的可以产生消除。<br><a id="more"></a></p>
+<h2>现在分析下第一大类：两个交换移动之后产生消除。</h2>
+<p>这一大类有以下两种情况：</p>
+<ul>
+<li>相同颜色的candy</li>
+<li>不同颜色的candy</li>
+</ul>
+<p>对了，在这里说一下candy的创建。<br>candy我是利用工厂模式创建的，第一层分类为颜色，第二层分类为某种颜色下横【横闪】、竖【纵闪】和方块【爆炸圈】，最终肯定有个特殊【百消球】。</p>
+<p><em>关于相同颜色的candy</em>：<br>这时候分为以下几种情况：</p>
+<ul>
+<li>百消球 和 百消球</li>
+<li>爆炸圈 和 爆炸圈</li>
+<li>爆炸圈 和 纵横闪</li>
+<li>纵横闪 和 纵横闪</li>
+<li>爆炸圈 和 普通</li>
+<li>纵横闪 和 普通</li>
+<li>普通 和 普通</li>
+</ul>
+<p>其中前四类是需要特殊处理的，后三类列为其他情况即可。其他情况只需要进行个返回原位置操作即可。</p>
+<p><em>关于不同颜色的candy</em>：</p>
+<p>这时候分为以下几种情况：</p>
+<ul>
+<li>百消球 和 爆炸圈</li>
+<li>百消球 和 纵横闪</li>
+<li>百消球 和 普通</li>
+<li>爆炸圈 和 爆炸圈</li>
+<li>爆炸圈 和 纵横闪</li>
+<li>纵横闪 和 纵横闪</li>
+<li>爆炸圈 和 普通</li>
+<li>纵横闪 和 普通</li>
+<li>普通    和 普通<br>其中前六类是需要特殊处理的，后三类列为其他情况即可。其他情况只需要进行个返回原位置操作即可。</li>
+</ul>
+<h2>然后分析下第二大类：移动后，相临的大于等于三个candy的可以产生消除。</h2>
+<p>这时候先分析下如果相邻的没有特殊的candy，即交换能构成消除，三个candy消除，四个根据方向形成纵闪或横闪，五个纵或横形成百消球，五个但是带折角的形成爆炸圈。这时候在交换的那个位置形成特殊的candy即可。</p>
+<p>在完成这个操作之后，可能会产生特殊的candy，这时候如果我们再进行移动交换，移动完毕后就可能在这相邻的里面有特殊的，我们先处理这些特殊的，然后再和原有该消除的合并即可。</p>
+<p>关于数据的存储处理，大家可以在candy中加个标识，表示当前candy是否加入到了vector【即将被消除的candy】中。</p>
+<p>消除类游戏主要是写好逻辑算法，让其达到最优。我制作游戏期间出现最多的问题就是这个应该消除的candy怎么个存储法。</p>
+<h2>主体思路，简单说下：</h2>
+<p>在主场景中加入你的游戏层，我习惯性是GameLayer，此文件中两个类，一个是CGameLayer,一个是CChessBox，CChessBox就是你的candy布局，在这里我称之为棋盘，注意CGameLayer创建的时候要留好接口，比如关卡信息，游戏层的位置。为什么要留游戏层的位置这个接口呢？因为你的棋盘不可能是固定不变的，不同的关卡位置可能发生变化，这样子你留好了位置接口之后就可以在不再用引擎那费劲的转化，到时候自己再判断区域的时候处理下x/y即可。</p>
+<p>说完接口，我们简单再说下这个棋盘，为什么要有棋盘呢？因为我们看到的cand的移动，其实就是忽悠人的，我们程序操作的都是棋盘。下面看下我的棋盘接口：</p>
+<figure class="highlight lang-c++"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="keyword">public</span>:
+    CChessBox();
+    ~CChessBox(){}
+    
+<span class="keyword">private</span>:
+    CC_SYNTHESIZE(<span class="keyword">int</span>, m_nRowIndex, RowIndex); <span class="comment">// 行索引</span>
+    CC_SYNTHESIZE(<span class="keyword">int</span>, m_nLineIndex, LineIndex); <span class="comment">// 列索引</span>
+    
+    CC_SYNTHESIZE(<span class="keyword">short</span>, m_nRowUpBoxNums, RowUpBoxNums);<span class="comment">// 行上的candy数</span>
+    CC_SYNTHESIZE(<span class="keyword">short</span>, m_nRowDownBoxNums, RowDownBoxNums); <span class="comment">// 行下的candy数</span>
+    CC_SYNTHESIZE(<span class="keyword">short</span>, m_nLineLeftBoxNums, LineLeftBoxNums); <span class="comment">// 列左的candy数</span>
+    CC_SYNTHESIZE(<span class="keyword">short</span>, m_nLineRightBoxNums, LineRightBoxNums); <span class="comment">// 列右的candy数</span>
+    
+    CC_SYNTHESIZE(CCRect, m_pRect, Rect); <span class="comment">// 是否点击candy</span>
+    CC_SYNTHESIZE(CCRect, m_pAtlasRect, AtlasRect); <span class="comment">// candy和candy的碰撞区域</span>
+    CC_SYNTHESIZE(CCPoint, m_pCenterPoint, CenterPoint); <span class="comment">// candy的位置</span>
+    CC_SYNTHESIZE(CBoxContent*, m_pBoxContent, BoxContent); <span class="comment">// 棋盘存放的内容</span>
+};
+</pre></td></tr></table></figure>
+
+<p>其中CBoxContent如下：</p>
+<figure class="highlight lang-c++"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="class"><span class="keyword">class</span> <span class="title">CBoxContent</span> :</span> public CCObject {
+    
+public:
+    CBoxContent() : m_pSkin(NULL), m_nRowIndex(<span class="number">0</span>), m_nLineIndex(<span class="number">0</span>)
+    {
+    }
+    
+private:
+    CC_SYNTHESIZE(CCandy*, m_pSkin, Skin); // 皮肤及表示candy
+    CC_SYNTHESIZE(int, m_nRowIndex, RowIndex);
+    CC_SYNTHESIZE(int, m_nLineIndex, LineIndex);
+};
+</pre></td></tr></table></figure>
+
+<p>在游戏层中存放个可变长的CChessBox数组，这样子游戏的棋盘就出来了。点击移动操作什么的都是针对棋盘，而CBoxContent就是个表现，有些同学这时候会问为什么为什么要有CBoxContent,其实我之前的行上列左等都是CBoxContent的属性，后来调节给了CChessBox，行上等属性在CBoxContent中很不方便，另外在CBoxContent添加m_pSkin存放candy也是为了后期的扩展。</p>
+<p>友情提醒下，就是移动后candy的删除问题。你最好在你的工厂中保存下释放的candy，这样子可以提高效率，避免每次都创建精灵。</p>
+<p>我的工厂就提供了释放和新建CBoxContent方法，如下:</p>
+<figure class="highlight lang-c++"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+</pre></td><td class="code"><pre><span class="keyword">void</span> IFactory::freeBoxContent(CBoxContent* boxContent)
+{
+	boxContent-&gt;getSkin()-&gt;retain();
+	boxContent-&gt;getSkin()-&gt;setVisible(<span class="keyword">false</span>);
+	boxContent-&gt;getSkin()-&gt;removeFromParentAndCleanup(<span class="keyword">true</span>);
+	m_pFreeBoxContentVector.push_back(boxContent);
+	<span class="keyword">delete</span> boxContent;
+	boxContent = NULL;
+}
+
+CBoxContent* IFactory::getNewBoxContent()
+{
+	CBoxContent *box = NULL;
+	<span class="keyword">if</span> (m_pFreeBoxContentVector.size() &gt; <span class="number">0</span>)
+	{
+		box = m_pFreeBoxContentVector.back();
+		m_pFreeBoxContentVector.pop_back();
+		box-&gt;getSkin()-&gt;setVisible(<span class="keyword">true</span>);
+	}<span class="keyword">else</span>
+	{
+		IFactory *factory;
+		<span class="keyword">short</span> typeFlag = CCRANDOM_0_1()*m_nCandyTypeNums;
+        
+		<span class="keyword">switch</span> (typeFlag)
+		{
+            <span class="keyword">case</span> CANDY_TYPE_GREEN:
+                factory = <span class="keyword">dynamic_cast</span>&lt;CFactoryGreen*&gt;(<span class="keyword">new</span> CFactoryGreen());
+                <span class="keyword">break</span>;
+            <span class="keyword">case</span> CANDY_TYPE_ORANGE:
+                factory = <span class="keyword">dynamic_cast</span>&lt;CFactoryOrange*&gt;(<span class="keyword">new</span> CFactoryOrange());
+                <span class="keyword">break</span>;
+            <span class="keyword">case</span> CANDY_TYPE_PURPLE:
+                factory = <span class="keyword">dynamic_cast</span>&lt;CFactoryPurple*&gt;(<span class="keyword">new</span> CFactoryPurple());
+                <span class="keyword">break</span>;
+            <span class="keyword">case</span> CANDY_TYPE_RED:
+                factory = <span class="keyword">dynamic_cast</span>&lt;CFactoryRed*&gt;(<span class="keyword">new</span> CFactoryRed());
+                <span class="keyword">break</span>;
+            <span class="keyword">case</span> CANDY_TYPE_YELLOW:
+                factory = <span class="keyword">dynamic_cast</span>&lt;CFactoryYellow*&gt;(<span class="keyword">new</span> CFactoryYellow());
+                <span class="keyword">break</span>;
+            <span class="keyword">default</span>:
+                factory = <span class="keyword">dynamic_cast</span>&lt;CFactoryGreen*&gt;(<span class="keyword">new</span> CFactoryGreen());
+                <span class="keyword">break</span>;
+		}
+        
+		box = <span class="keyword">new</span> CBoxContent();
+		box-&gt;setSkin(factory-&gt;_doCreateTypeByFactory());
+	}
+	<span class="keyword">return</span> box;
+}
+</pre></td></tr></table></figure>
+
+<p>哦，不早了，该洗洗睡了，就先写这些吧，后续补充……</p>
+<hr>
+<pre><code>    欢迎热爱编程的朋友们参与到cocos2d-x编程中，为了给大家提供良好的交流环境，网站以开启QQ群
+
+                 Software MyZone：66202765（群号，欢迎加入,若满，请加1群）
+
+                          Software MyZone 1群(2dx)：286504621
+
+                     【加群请写：Software MyZone或者是firedragonpzy】
+
+                     淘宝店：【应小心的易淘屋】初次开店，大家多多支持……
+
+                  群论坛：火龙论坛正试运营阶段，欢迎大家多提些建设性意见……</code></pre>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/cocos2d-x/">cocos2d-x</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/cocos2d-x/">cocos2d-x</a>
+  </div>
+
+
+        <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_t163" data-cmd="t163" title="分享到网易微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","t163"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":false}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=86326610.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+ <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"roypang"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:blog.firedragonpzy.com.cn">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/cocos2d-x/">cocos2d-x</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/cocos2d-x/">cocos2d-x</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=300&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=1785297501&verifier=1f582291&dpc=1"></iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://firedragonpzy.com.cn/" title="firedragonpzy's Blog" target="_blank">Software MyZone</a></li>
+<li><a href="http://bbs.firedragonpzy.com.cn/" title="firedragonpzy's Discuz"  target="_blank">火龙论坛</a></li>
+<li><a href="http://roy-pang.taobao.com/" title="firedragonpzy's Discuz"  target="_blank">应小心的易淘屋</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 firedragonpzy
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
