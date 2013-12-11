@@ -6,7 +6,8 @@ tags: cocos2d-x
 ***本文为firedragonpzy原创,转载务必在明显处注明： 
         转载自【Softeware MyZone】原文链接: http://www.firedragonpzy.com.cn/index.php/archives/4119***
 
-
+每日一曲【程序猿需要激情，high起来吧！】
+  <embed src="http://www.xiami.com/widget/0_3515679/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>
 最近做类似Candy Crush的消除类游戏，现在和大家分享下关于candy移动消除这一块，望大神们多多指点……
 
 首先，移动后candy的消除分为两大类，第一大类就是你移动交换的两个candy发生消除，例如你移动百消球和临近的普通candy进行交换，这时候消除和普通candy颜色一样的candy。
