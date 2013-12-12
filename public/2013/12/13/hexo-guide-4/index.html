@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>About Me | Software MyZone</title>
+  <title>hexo系列教程：（四）hexo博客的优化技巧续 转 | Software MyZone</title>
   <meta name="author" content="firedragonpzy">
   
   <meta name="description" content="Focus on the development cocos2d-x">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="About Me"/>
+  <meta property="og:title" content="hexo系列教程：（四）hexo博客的优化技巧续 转"/>
   <meta property="og:site_name" content="Software MyZone"/>
 
   
@@ -47,27 +47,91 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="page">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
   <div class="post-content">
     <header>
       
+        <div class="icon"></div>
+        <time datetime="2013-12-13T00:17:28.000Z"><a href="/2013/12/13/hexo-guide-4/">12月 13 2013</a></time>
+      
       
   
-    <h1 class="title">About Me</h1>
+    <h1 class="title">hexo系列教程：（四）hexo博客的优化技巧续 转</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>Hello! I am firedragonpzy. <a href="http://www.firedragonpzy.com.cn/index.php/sample-page" target="_blank">About me</a></p>
-  <embed src="http://www.xiami.com/widget/0_3515679/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>
+        <hr>
+<p><strong>转载自：</strong><a href="http://zipperary.com/2013/06/02/hexo-guide-5/" target="_blank">http://zipperary.com/2013/06/02/hexo-guide-5/</a><br><strong><code>感谢moxie提供</code></strong></p>
+<p>继续介绍hexo博客的优化和使用。</p>
+<h3>添加RSS</h3>
+<p>hexo提供了RSS的生成插件，需要手动安装和设置。步骤如下：<br><a id="more"></a><br>1. 安装RSS插件到本地：<code>npm install hexo-generator-feed --save</code><br>2. 开启RSS功能：编辑<code>hexo/_config.yml</code>，添加如下代码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="comment">plugins:</span>
+<span class="literal">-</span> <span class="comment">hexo</span>-<span class="comment">generator</span>-<span class="comment">feed
+</pre></td></tr></table></figure>
+
+<ol>
+<li>在站点添加链接：<br>在<code>themes/light/_config.yml</code>中，编辑 <code>rss: /atom.xml</code><br>在<code>themes/light/layout/_partial/header.ejs</code>中，<code>&lt;ul&gt;&lt;/ul&gt;</code>之间，添加一样代码<code>&lt;li&gt; &lt;a href=&quot;/atom.xml&quot;&gt;RSS&lt;/a&gt; &lt;/li&gt;</code></li>
+</ol>
+<h3>添加sitemap</h3>
+<p>同样的，我们使用hexo提供的插件，方法与添加RSS类似。</p>
+<ol>
+<li>安装sitemap到本地：<code>npm install hexo-generator-sitemap --save</code></li>
+<li><p>开启sitemap功能：编辑<code>hexo/_config.yml</code>，添加如下代码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="comment">plugins:</span>
+<span class="literal">-</span> <span class="comment">hexo</span>-<span class="comment">generator</span>-<span class="comment">sitemap
+</pre></td></tr></table></figure>
+</li>
+<li><p>访问<code>zipperary/sitemap.xml</code>即可看到站点地图。不过，sitemap的初衷是给搜索引擎看的，为了提高搜索引擎对自己站点的收录效果，我们最好手动到google和百度等搜索引擎提交sitemap.xml。</p>
+</li>
+</ol>
+<h3>设置百度统计、Google Analytics</h3>
+<p>到<a href="http://tongji.baidu.com/web/welcome/login" target="_blank">百度统计</a>和<a href="http://www.google.com/analytics/" target="_blank">Google Analytics</a>（可能需要穿墙）注册账号、添加网站地址即可，很简单，不详述了。需要注意的是，设置好之后数据要过几个小时才能出现，不用着急。</p>
+<h3>文章中插入图片</h3>
+<p>使用markdown写文章，插入图片的格式为<code>![图片名称](链接地址)</code>，这里要说的是链接地址怎么写。对于hexo，有两种方式：</p>
+<ol>
+<li>使用本地路径：在<code>hexo/source</code>目录下新建一个<code>img</code>文件夹，将图片放入该文件夹下，插入图片时链接即为<code>/img/图片名称</code>。</li>
+<li>使用<em>微博图床</em>，地址<a href="http://weibotuchuang.sinaapp.com/" target="_blank">http://weibotuchuang.sinaapp.com/</a>，将图片拖入区域中，会生成图片的URL，这就是链接地址。</li>
+</ol>
+<h3>bug:「warning: LF will be replaced by CRLF」</h3>
+<p>在<code>hexo deploy</code>时，有时会出现这个提示信息<code>warning: LF will be replaced by CRLF</code>，虽然看起来挺乱糟糟的，但不影响使用，可以忽略不计。若想不提示，可以使用如下方法：</p>
+<ol>
+<li>切换到博客的根目录，执行如下命令：<code>git config --global core.autocrlf  false</code></li>
+<li>删除掉该目录下的<code>.git</code>文件夹（可能是隐藏的），命令：<code>rm -rf .git</code></li>
+<li>重新<code>git init</code>。</li>
+</ol>
+<p>再deploy试试吧，清新脱俗了。</p>
+<h3>bug:<code>hexo deploy</code>没反应</h3>
+<p>好多网友遇到过这个问题，目前来看，主要问题出在config.yml的deploy配置上。注意缩进，同时注意冒号后面要有一个空格。</p>
+<h3>bug:<code>hexo update -g</code>升级错误，hexo命令失效</h3>
+<p>我升级时遇到了这个问题，原因不详。这种情况下，可执行<code>npm install -g hexo</code>重新安装一遍hexo，效果跟升级一样。各版本所做更新修正，请参考<a href="https://github.com/tommy351/hexo/releases" target="_blank">这里</a>。</p>
+<h3>bug:搜索框进行搜索：没有结果</h3>
+<p>点击搜索后进入的google页面，搜索框里面是不是显示「site:yoursite.com」，这说明有个地方没有设置，请随我来：</p>
+<p>打开根目录下的config文件，第15行，<code>url:</code>，自觉填上吧。</p>
+<hr>
+
       
     </div>
     <footer>
       
         
+  
+  <div class="categories">
+    <a href="/categories/hexo/">hexo</a>
+  </div>
+
         
+  
+  <div class="tags">
+    <a href="/tags/hexo/">hexo</a>
+  </div>
+
 
         <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_t163" data-cmd="t163" title="分享到网易微博"></a></div>
 <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","t163"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":false}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=86326610.js?cdnversion='+~(-new Date()/36e5)];</script>
