@@ -65,17 +65,23 @@
       
         <hr>
 <p><strong>转载自：</strong><a href="http://zipperary.com/2013/06/02/hexo-guide-5/" target="_blank">http://zipperary.com/2013/06/02/hexo-guide-5/</a><br><strong><code>感谢moxie提供</code></strong></p>
-<p>继续介绍hexo博客的优化和使用。</p>
+<p>每日一曲【程序猿太累，休息会吧！】</p>
+<embed src="http://www.xiami.com/widget/27050813_1772245372/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>
+
+<p>继续介绍hexo博客的优化和使用。<br><a id="more"></a></p>
 <h3>添加RSS</h3>
-<p>hexo提供了RSS的生成插件，需要手动安装和设置。步骤如下：<br><a id="more"></a><br>1. 安装RSS插件到本地：<code>npm install hexo-generator-feed --save</code><br>2. 开启RSS功能：编辑<code>hexo/_config.yml</code>，添加如下代码：</p>
+<p>hexo提供了RSS的生成插件，需要手动安装和设置。步骤如下：</p>
+<ol>
+<li>安装RSS插件到本地：<code>npm install hexo-generator-feed --save</code></li>
+<li><p>开启RSS功能：编辑<code>hexo/_config.yml</code>，添加如下代码：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="comment">plugins:</span>
 <span class="literal">-</span> <span class="comment">hexo</span>-<span class="comment">generator</span>-<span class="comment">feed
 </pre></td></tr></table></figure>
-
-<ol>
-<li>在站点添加链接：<br>在<code>themes/light/_config.yml</code>中，编辑 <code>rss: /atom.xml</code><br>在<code>themes/light/layout/_partial/header.ejs</code>中，<code>&lt;ul&gt;&lt;/ul&gt;</code>之间，添加一样代码<code>&lt;li&gt; &lt;a href=&quot;/atom.xml&quot;&gt;RSS&lt;/a&gt; &lt;/li&gt;</code></li>
+</li>
+<li><p>在站点添加链接：<br>在<code>themes/light/_config.yml</code>中，编辑 <code>rss: /atom.xml</code><br>在<code>themes/light/layout/_partial/header.ejs</code>中，<code>&lt;ul&gt;&lt;/ul&gt;</code>之间，添加一样代码<code>&lt;li&gt; &lt;a href=&quot;/atom.xml&quot;&gt;RSS&lt;/a&gt; &lt;/li&gt;</code></p>
+</li>
 </ol>
 <h3>添加sitemap</h3>
 <p>同样的，我们使用hexo提供的插件，方法与添加RSS类似。</p>

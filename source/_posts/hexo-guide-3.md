@@ -7,12 +7,15 @@ tags: [hexo]
 **转载自：**http://zipperary.com/2013/05/30/hexo-guide-4/
 **`感谢moxie提供`**
 
+每日一曲【程序猿找媳妇不容易，付出生命吧！】
+<embed src="http://www.xiami.com/widget/27050813_1772301193/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>
+
 上一节中我们已经学会了用hexo发布博客，这里再介绍一些小技巧对博客站点进行优化，实现更加丰富的功能。
 
+<!--more-->
 ###添加“多说”评论
 
 hexo默认使用国外比较流行的disqus，不过，按照“因地制宜”的原则，我们修改为国内用的多又好用的“多说”评论系统。步骤非常简单：
-<!--more-->
 1. 在[多说](http://duoshuo.com/)进行注册，获得通用代码。
 2. 将通用代码粘贴到`themes\light\layout\_partial\comment.ejs`里面，如下：
 ```html

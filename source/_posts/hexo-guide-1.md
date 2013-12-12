@@ -6,13 +6,16 @@ tags: [hexo]
 **转载自：**http://zipperary.com/2013/05/28/hexo-guide-2/
 **`感谢moxie提供`**
 
+每日一曲【程序猿太累，休息会吧！】
+<embed src="http://www.xiami.com/widget/27050813_1772245372/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>
+
 本节来讲讲怎么搭建hexo博客。
 
 **注意**：本节教程只针对Windows用户，Linux和Mac用户请移步[hexo安装](http://zespia.tw/hexo/zh-CN/docs/install.html)。
-
+<!--more-->
 ###安装Git
 下载 [msysgit](http://code.google.com/p/msysgit/) 并执行即可完成安装。
-<!--more-->
+
 ###安装Node.js
 在 Windows 环境下安装 Node.js 非常简单，仅须[下载](http://nodejs.org/)安装文件并执行即可完成安装。
 ###安装hexo

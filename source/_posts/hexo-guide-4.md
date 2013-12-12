@@ -8,12 +8,15 @@ tags: [hexo]
 **转载自：**http://zipperary.com/2013/06/02/hexo-guide-5/
 **`感谢moxie提供`**
 
-继续介绍hexo博客的优化和使用。
+每日一曲【程序猿找媳妇不容易，付出生命吧！】
+<embed src="http://www.xiami.com/widget/27050813_1772301193/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>
 
+继续介绍hexo博客的优化和使用。
+<!--more-->
 ###添加RSS
 
 hexo提供了RSS的生成插件，需要手动安装和设置。步骤如下：
-<!--more-->
+
 1. 安装RSS插件到本地：`npm install hexo-generator-feed --save`
 2. 开启RSS功能：编辑`hexo/_config.yml`，添加如下代码：
 ```

@@ -7,12 +7,15 @@ tags: [hexo]
 **转载自：**http://zipperary.com/2013/05/29/hexo-guide-3/
 **`感谢moxie提供`**
 
+每日一曲【程序猿太累，休息会吧！】
+<embed src="http://www.xiami.com/widget/27050813_1772245372/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>
+
 在上一节中，我们在本地和github搭建起了自己的hexo博客站点，但是还未发表过文章，站点的配置还是原来的默认值。在本节，我们来进行个性化的设置，将站点打造成自己的，同时介绍下怎么撰文和发表。
+<!--more-->
 
 站点配置用到两个文件，一个是对整站的配置`H:\hexo\_config.yml`，另一个是对主题的配置`H:\hexo\themes\light_config.yml`，我们来分别介绍。
 
 *H:\hexo\ _config.yml*
-<!--more-->
 ```
 # Hexo Configuration
 ## Docs: http://zespia.tw/hexo/docs/configure.html
