@@ -159,16 +159,11 @@ CBoxContent* IFactory::getNewBoxContent()
 
 ```
 哦，不早了，该洗洗睡了，就先写这些吧，后续补充……
-
 ----------
-        欢迎热爱编程的朋友们参与到cocos2d-x编程中，为了给大家提供良好的交流环境，网站以开启QQ群
+<div align="center"><span style="color: red;">欢迎热爱编程的朋友们参与到cocos2d-x编程中，为了给大家提供良好的交流环境，网站以开启QQ群
+Software MyZone：66202765（群号，欢迎加入,若满，请加1群）
+Software MyZone 1群(2dx)：286504621
+【加群请写：Software MyZone或者是firedragonpzy】
+**<span style="color: #800000;">淘宝店：<span style="color: #0000ff;">[<span style="color: #0000ff;">【应小心的易淘屋】</span>](http://roy-pang.taobao.com)</span>初次开店，大家多多支持……</span>**
+群论坛：[<span style="color: blue;">火龙论坛</span>](http://bbs.firedragonpzy.com.cn/forum.php)正试运营阶段，欢迎大家多提些建设性意见……</span></div>
 
-                     Software MyZone：66202765（群号，欢迎加入,若满，请加1群）
-
-                              Software MyZone 1群(2dx)：286504621
-
-                         【加群请写：Software MyZone或者是firedragonpzy】
-
-                         淘宝店：【应小心的易淘屋】初次开店，大家多多支持……
-
-                      群论坛：火龙论坛正试运营阶段，欢迎大家多提些建设性意见……
