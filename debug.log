@@ -1,5 +1,5 @@
-date: 2013-12-07 13:26:19.530
-argv: node C:\Users\Administrator\AppData\Roaming\npm\node_modules\hexo\bin\hexo g
+date: 2013-12-18 18:48:18.900
+argv: node C:\Users\Administrator\AppData\Roaming\npm\node_modules\hexo\bin\hexo d
 os: Windows_NT 6.1.7601 win32 ia32
 version:
   hexo: 2.3.0
@@ -13,25 +13,14 @@ version:
   openssl: 1.0.1e
 ---
 
-[debug] 13:26:18.063 Configuration file load successfully
-[debug] 13:26:18.067 Version info checked successfully
-[debug] 13:26:18.067 Loading the database...
-[debug] 13:26:19.418 Theme layout loaded
-[debug] 13:26:19.429 Theme configuration loaded
-[debug] 13:26:19.439 Processed: CNAME
-[debug] 13:26:19.485 Processed: about/index.md
-[debug] 13:26:19.488 Processed: _posts/hello-world.md
-[debug] 13:26:19.494 Theme source loaded
-[debug] 13:26:19.499 Theme i18n loaded
-[error] 13:26:19.502 { rawMessage: 'Unable to parse.',
-  parsedLine: 1,
-  snippet: 'Dillinger',
-  parsedFile: null,
-  message: 'Unable to parse.',
-  domain: 
-   { domain: null,
-     _events: { error: [Function] },
-     _maxListeners: 10,
-     members: [],
-     _disposed: true },
-  domainThrown: true }
+[debug] 18:48:17.248 Configuration file load successfully
+[debug] 18:48:17.251 Version info checked successfully
+[debug] 18:48:17.257 Plugin loaded successfully: hexo-generator-feed
+[debug] 18:48:17.261 Plugin loaded successfully: hexo-generator-sitemap
+[debug] 18:48:18.192 Plugin loaded successfully: hexo-migrator-wordpress
+[debug] 18:48:18.193 Loading the database...
+[info] 18:48:18.807 Start deploying: github
+[info] 18:48:18.813 Clearing .deploy folder...
+[info] 18:48:18.873 Copying files from public folder...
+[error] 18:48:18.889 Error: EPERM, mkdir 'E:\test\hexo\.deploy\archives'
+Error: EPERM, mkdir 'E:\test\hexo\.deploy\archives'
