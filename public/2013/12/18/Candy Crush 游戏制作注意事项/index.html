@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hexo系列教程：（四）hexo博客的优化技巧续 转 | Software MyZone</title>
+  <title>Candy Crush 游戏制作注意事项 | Software MyZone</title>
   <meta name="author" content="firedragonpzy">
   
   <meta name="description" content="Focus on the development cocos2d-x">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="hexo系列教程：（四）hexo博客的优化技巧续 转"/>
+  <meta property="og:title" content="Candy Crush 游戏制作注意事项"/>
   <meta property="og:site_name" content="Software MyZone"/>
 
   
@@ -53,75 +53,42 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-12-13T00:17:28.000Z"><a href="/2013/12/13/hexo-guide-4/">12月 13 2013</a></time>
+        <time datetime="2013-12-18T14:45:45.000Z"><a href="/2013/12/18/Candy Crush 游戏制作注意事项/">12月 18 2013</a></time>
       
       
   
-    <h1 class="title">hexo系列教程：（四）hexo博客的优化技巧续 转</h1>
+    <h1 class="title">Candy Crush 游戏制作注意事项</h1>
   
 
     </header>
     <div class="entry">
       
-        <hr>
-<p><strong>转载自：</strong><a href="http://zipperary.com/2013/06/02/hexo-guide-5/" target="_blank">http://zipperary.com/2013/06/02/hexo-guide-5/</a><br><strong><code>感谢moxie提供</code></strong></p>
-<p>每日一曲【程序猿找媳妇不容易，付出生命吧！】</p>
-<embed src="http://www.xiami.com/widget/27050813_1772301193/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>
-
-<p>继续介绍hexo博客的优化和使用。<br><a id="more"></a></p>
-<h3>添加RSS</h3>
-<p>hexo提供了RSS的生成插件，需要手动安装和设置。步骤如下：</p>
+        <p><strong><em>本文为firedragonpzy原创,转载务必在明显处注明：<br>        转载自【Softeware MyZone】原文链接: <a href="http://www.firedragonpzy.com.cn/index.php/archives/4159" target="_blank">http://www.firedragonpzy.com.cn/index.php/archives/4159</a></em></strong></p>
+<p>每日一曲【咱们结婚吧！】<br> <embed src="http://www.xiami.com/widget/27050813_1772301196/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed></p>
+<p>写了第一篇<a href="http://www.firedragonpzy.com.cn/index.php/archives/4119" target="_blank">游戏制作及算法分析</a>之后，本来想写分析二来，后来考虑一下，还是先和大家分享下注意事项吧，或者说是这其中的易错点，在这期间也捎带说下部分算法，这样子基本就全了。</p>
+<p><code>下面列举下注意事项：</code><br><a id="more"></a></p>
+<ul>
+<li>candy的创建及消除</li>
+<li>candy消除后的下落</li>
+<li>candy的展现</li>
+<li>candy全局检测提示</li>
+</ul>
+<h2>下面先来讲述下：candy的创建及消除</h2>
+<p>关于创建和消除，在了第一篇<a href="http://www.firedragonpzy.com.cn/index.php/archives/4119" target="_blank">游戏制作及算法分析</a>已经提及到，要在工厂中保存部分candy，这样能提高效率，防止每次不必要的创建以及消除。</p>
+<h2>接来讲述下：消除后的下落</h2>
+<p>关于下落，我们首先需要保证的是下落的速度一致，动作需要传入一个时间t，根据 t = s/v，我们把v定义为常量，每次获取距离即可。说完时间的获取，这时候我们就得全盘遍历棋盘，进行candy的下落处理。这里有个需要注意的地方，我们遍历，先遍历列再遍历行，平时的习惯是行了之后再遍历列。这里说下为什么先遍历列，因为你要保证下落的candy是连续的，假设一列有三个空缺，那你就需要在当前列的最后一行再加三行，每遍历完当前列的最后一行，重置下你的临时位置，让其再从最后一行的上一行开始。如果这里使用行列遍历，这时你后来新添加的candy容易发生位置错乱。</p>
+<h2>接来讲述下：candy的展现</h2>
+<p>关于游戏中使用到的candy，我们可以使用tp打包，这样子我们在程序中就可以加载一张纹理，这里也可以进行纹理的预加载，保证游戏的流畅性。多个candy打包后的另外一个好处就是我们可以使用精灵表，减少了渲染批次，大大提高了效率。我们把精灵表加载到游戏层，完后我一个个candy加入到精灵表中，精灵表上的个数为棋盘的个数。这就必须保证每次我们销毁一个candy的时候进行精灵的持有、设置不显示和从精灵表上移除的操作。</p>
+<h2>最后再说下candy的全局检测提示</h2>
+<p>关于检测，我这里提供两种方案：</p>
 <ol>
-<li>安装RSS插件到本地：<code>npm install hexo-generator-feed --save</code></li>
-<li><p>开启RSS功能：编辑<code>hexo/_config.yml</code>，添加如下代码：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="comment">plugins:</span>
-<span class="literal">-</span> <span class="comment">hexo</span>-<span class="comment">generator</span>-<span class="comment">feed
-</pre></td></tr></table></figure>
-</li>
-<li><p>在站点添加链接：<br>在<code>themes/light/_config.yml</code>中，编辑 <code>rss: /atom.xml</code><br>在<code>themes/light/layout/_partial/header.ejs</code>中，<code>&lt;ul&gt;&lt;/ul&gt;</code>之间，添加一样代码<code>&lt;li&gt; &lt;a href=&quot;/atom.xml&quot;&gt;RSS&lt;/a&gt; &lt;/li&gt;</code></p>
-</li>
+<li>模拟移动，即你将candy移动到需要的地方进行周边检测 </li>
+<li>每次获取三个进行周边检测，获取相邻三个，检测下是不是有两个同类型的，如果有则记录下在这三个之中不同类型的candy的位置。完后进行周边检测。假设我们三个的标识分别为0、1、2，则0只需要检测上、左和下边即可，1只需要检测上和下边即可，2只需要检测上、右和下即可。这里要注意边界情况的处理。</li>
 </ol>
-<h3>添加sitemap</h3>
-<p>同样的，我们使用hexo提供的插件，方法与添加RSS类似。</p>
-<ol>
-<li>安装sitemap到本地：<code>npm install hexo-generator-sitemap --save</code></li>
-<li><p>开启sitemap功能：编辑<code>hexo/_config.yml</code>，添加如下代码：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="comment">plugins:</span>
-<span class="literal">-</span> <span class="comment">hexo</span>-<span class="comment">generator</span>-<span class="comment">sitemap
-</pre></td></tr></table></figure>
-</li>
-<li><p>访问<code>zipperary/sitemap.xml</code>即可看到站点地图。不过，sitemap的初衷是给搜索引擎看的，为了提高搜索引擎对自己站点的收录效果，我们最好手动到google和百度等搜索引擎提交sitemap.xml。</p>
-</li>
-</ol>
-<h3>设置百度统计、Google Analytics</h3>
-<p>到<a href="http://tongji.baidu.com/web/welcome/login" target="_blank">百度统计</a>和<a href="http://www.google.com/analytics/" target="_blank">Google Analytics</a>（可能需要穿墙）注册账号、添加网站地址即可，很简单，不详述了。需要注意的是，设置好之后数据要过几个小时才能出现，不用着急。</p>
-<h3>文章中插入图片</h3>
-<p>使用markdown写文章，插入图片的格式为<code>![图片名称](链接地址)</code>，这里要说的是链接地址怎么写。对于hexo，有两种方式：</p>
-<ol>
-<li>使用本地路径：在<code>hexo/source</code>目录下新建一个<code>img</code>文件夹，将图片放入该文件夹下，插入图片时链接即为<code>/img/图片名称</code>。</li>
-<li>使用<em>微博图床</em>，地址<a href="http://weibotuchuang.sinaapp.com/" target="_blank">http://weibotuchuang.sinaapp.com/</a>，将图片拖入区域中，会生成图片的URL，这就是链接地址。</li>
-</ol>
-<h3>bug:「warning: LF will be replaced by CRLF」</h3>
-<p>在<code>hexo deploy</code>时，有时会出现这个提示信息<code>warning: LF will be replaced by CRLF</code>，虽然看起来挺乱糟糟的，但不影响使用，可以忽略不计。若想不提示，可以使用如下方法：</p>
-<ol>
-<li>切换到博客的根目录，执行如下命令：<code>git config --global core.autocrlf  false</code></li>
-<li>删除掉该目录下的<code>.git</code>文件夹（可能是隐藏的），命令：<code>rm -rf .git</code></li>
-<li>重新<code>git init</code>。</li>
-</ol>
-<p>再deploy试试吧，清新脱俗了。</p>
-<h3>bug:<code>hexo deploy</code>没反应</h3>
-<p>好多网友遇到过这个问题，目前来看，主要问题出在config.yml的deploy配置上。注意缩进，同时注意冒号后面要有一个空格。</p>
-<h3>bug:<code>hexo update -g</code>升级错误，hexo命令失效</h3>
-<p>我升级时遇到了这个问题，原因不详。这种情况下，可执行<code>npm install -g hexo</code>重新安装一遍hexo，效果跟升级一样。各版本所做更新修正，请参考<a href="https://github.com/tommy351/hexo/releases" target="_blank">这里</a>。</p>
-<h3>bug:搜索框进行搜索：没有结果</h3>
-<p>点击搜索后进入的google页面，搜索框里面是不是显示「site:yoursite.com」，这说明有个地方没有设置，请随我来：</p>
-<p>打开根目录下的config文件，第15行，<code>url:</code>，自觉填上吧。</p>
-<hr>
-
+<p>关于这个检测，我们要考虑到特殊主体，上面只是讲解了普通主体的判断，注意：普通主体判断我们只需要检测三个即可。</p>
+<p>说到特殊主体，这个容易被忽略。超级主体：百消球，只要有一个即可，除了百消球和普通主体，其余的只要有两个相连即可提示。</p>
+<h2>目前就这些问题，如果有其余注意事项，后续补充……</h2>
+<div align="center"><span style="color: red;">欢迎热爱编程的朋友们参与到cocos2d-x编程中，为了给大家提供良好的交流环境，网站以开启QQ群<br>Software MyZone：66202765（群号，欢迎加入,若满，请加1群）<br>Software MyZone 1群(2dx)：286504621<br>【加群请写：Software MyZone或者是firedragonpzy】<br><strong><span style="color: #800000;">淘宝店：<span style="color: #0000ff;"><a href="http://roy-pang.taobao.com" target="_blank"><span style="color: #0000ff;">【应小心的易淘屋】</span></a></span>初次开店，大家多多支持……</span></strong><br>群论坛：<a href="http://bbs.firedragonpzy.com.cn/forum.php" target="_blank"><span style="color: blue;">火龙论坛</span></a>正试运营阶段，欢迎大家多提些建设性意见……</span></div>
       
     </div>
     <footer>
@@ -129,13 +96,13 @@
         
   
   <div class="categories">
-    <a href="/categories/hexo/">hexo</a>
+    <a href="/categories/cocos2d-x/">cocos2d-x</a>
   </div>
 
         
   
   <div class="tags">
-    <a href="/tags/hexo/">hexo</a>
+    <a href="/tags/cocos2d-x/">cocos2d-x</a>
   </div>
 
 
