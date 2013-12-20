@@ -1,4 +1,4 @@
-date: 2013-12-18 18:48:18.900
+date: 2013-12-18 19:14:39.083
 argv: node C:\Users\Administrator\AppData\Roaming\npm\node_modules\hexo\bin\hexo d
 os: Windows_NT 6.1.7601 win32 ia32
 version:
@@ -13,14 +13,14 @@ version:
   openssl: 1.0.1e
 ---
 
-[debug] 18:48:17.248 Configuration file load successfully
-[debug] 18:48:17.251 Version info checked successfully
-[debug] 18:48:17.257 Plugin loaded successfully: hexo-generator-feed
-[debug] 18:48:17.261 Plugin loaded successfully: hexo-generator-sitemap
-[debug] 18:48:18.192 Plugin loaded successfully: hexo-migrator-wordpress
-[debug] 18:48:18.193 Loading the database...
-[info] 18:48:18.807 Start deploying: github
-[info] 18:48:18.813 Clearing .deploy folder...
-[info] 18:48:18.873 Copying files from public folder...
-[error] 18:48:18.889 Error: EPERM, mkdir 'E:\test\hexo\.deploy\archives'
+[debug] 19:14:37.565 Configuration file load successfully
+[debug] 19:14:37.568 Version info checked successfully
+[debug] 19:14:37.573 Plugin loaded successfully: hexo-generator-feed
+[debug] 19:14:37.579 Plugin loaded successfully: hexo-generator-sitemap
+[debug] 19:14:38.375 Plugin loaded successfully: hexo-migrator-wordpress
+[debug] 19:14:38.376 Loading the database...
+[info] 19:14:38.986 Start deploying: github
+[info] 19:14:38.991 Clearing .deploy folder...
+[info] 19:14:39.053 Copying files from public folder...
+[error] 19:14:39.073 Error: EPERM, mkdir 'E:\test\hexo\.deploy\archives'
 Error: EPERM, mkdir 'E:\test\hexo\.deploy\archives'
