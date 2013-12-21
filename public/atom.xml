@@ -4,11 +4,7 @@
   <subtitle><![CDATA[专注于iOS[cocos2d-x]、php、c/c++、ruby、java等技术领域 [Now cocos2d-x game developer]]]></subtitle>
   <link href="http://blog.firedragonpzy.com.cn/atom.xml" rel="self"/>
   <link href="http://blog.firedragonpzy.com.cn"/>
-<<<<<<< HEAD
-  <updated>2013-12-18T11:14:34.023Z</updated>
-=======
-  <updated>2013-12-19T12:27:49.044Z</updated>
->>>>>>> f40ad10bbd1b2230879cbab5cff00030275dc7c5
+  <updated>2013-12-20T01:48:44.608Z</updated>
   <id>http://blog.firedragonpzy.com.cn/</id>
   <author>
     <name><![CDATA[firedragonpzy]]></name>
@@ -20,7 +16,7 @@
     <link href="http://blog.firedragonpzy.com.cn/2013/12/18/Candy Crush 游戏制作注意事项/"/>
     <id>http://blog.firedragonpzy.com.cn/2013/12/18/Candy Crush 游戏制作注意事项/</id>
     <published>2013-12-18T14:45:45.000Z</published>
-    <updated>2013-12-19T12:20:52.000Z</updated>
+    <updated>2013-12-18T05:29:52.000Z</updated>
     <content type="html"><![CDATA[<p><strong><em>本文为firedragonpzy原创,转载务必在明显处注明：<br>        转载自【Softeware MyZone】原文链接: <a href="http://www.firedragonpzy.com.cn/index.php/archives/4159" target="_blank">http://www.firedragonpzy.com.cn/index.php/archives/4159</a></em></strong></p>
 <p>每日一曲【咱们结婚吧！】<br> <embed src="http://www.xiami.com/widget/27050813_1772301196/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed></p>
 <p>写了第一篇<a href="http://www.firedragonpzy.com.cn/index.php/archives/4119" target="_blank">游戏制作及算法分析</a>之后，本来想写分析二来，后来考虑一下，还是先和大家分享下注意事项吧，或者说是这其中的易错点，在这期间也捎带说下部分算法，这样子基本就全了。</p>
@@ -55,7 +51,7 @@
     <link href="http://blog.firedragonpzy.com.cn/2013/12/16/Candy Crush 游戏制作及消除算法分析/"/>
     <id>http://blog.firedragonpzy.com.cn/2013/12/16/Candy Crush 游戏制作及消除算法分析/</id>
     <published>2013-12-16T14:45:45.000Z</published>
-    <updated>2013-12-19T12:20:52.000Z</updated>
+    <updated>2013-12-18T05:38:07.000Z</updated>
     <content type="html"><![CDATA[<p><strong><em>本文为firedragonpzy原创,转载务必在明显处注明：<br>        转载自【Softeware MyZone】原文链接: <a href="http://www.firedragonpzy.com.cn/index.php/archives/4119" target="_blank">http://www.firedragonpzy.com.cn/index.php/archives/4119</a></em></strong></p>
 <p>每日一曲【程序猿需要激情，high起来吧！】<br>  <embed src="http://www.xiami.com/widget/0_3515679/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed><br>最近做类似Candy Crush的消除类游戏，现在和大家分享下关于candy移动消除这一块，望大神们多多指点……</p>
 <p>首先，移动后candy的消除分为两大类，第一大类就是你移动交换的两个candy发生消除，例如你移动百消球和临近的普通candy进行交换，这时候消除和普通candy颜色一样的candy。</p>
@@ -279,7 +275,7 @@ CBoxContent* IFactory::getNewBoxContent()
     <link href="http://blog.firedragonpzy.com.cn/2013/12/13/hexo-guide-4/"/>
     <id>http://blog.firedragonpzy.com.cn/2013/12/13/hexo-guide-4/</id>
     <published>2013-12-13T00:17:28.000Z</published>
-    <updated>2013-12-12T12:50:23.000Z</updated>
+    <updated>2013-12-14T05:04:51.000Z</updated>
     <content type="html"><![CDATA[<hr>
 <p><strong>转载自：</strong><a href="http://zipperary.com/2013/06/02/hexo-guide-5/" target="_blank">http://zipperary.com/2013/06/02/hexo-guide-5/</a><br><strong><code>感谢moxie提供</code></strong></p>
 <p>每日一曲【程序猿找媳妇不容易，付出生命吧！】</p>
@@ -347,7 +343,7 @@ CBoxContent* IFactory::getNewBoxContent()
     <link href="http://blog.firedragonpzy.com.cn/2013/12/13/hexo-guide-3/"/>
     <id>http://blog.firedragonpzy.com.cn/2013/12/13/hexo-guide-3/</id>
     <published>2013-12-12T23:28:53.000Z</published>
-    <updated>2013-12-12T12:50:57.000Z</updated>
+    <updated>2013-12-14T05:04:51.000Z</updated>
     <content type="html"><![CDATA[<p><strong>转载自：</strong><a href="http://zipperary.com/2013/05/30/hexo-guide-4/" target="_blank">http://zipperary.com/2013/05/30/hexo-guide-4/</a><br><strong><code>感谢moxie提供</code></strong></p>
 <p>每日一曲【程序猿找媳妇不容易，付出生命吧！】</p>
 <embed src="http://www.xiami.com/widget/27050813_1772301193/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>
@@ -447,7 +443,7 @@ CBoxContent* IFactory::getNewBoxContent()
     <link href="http://blog.firedragonpzy.com.cn/2013/12/12/hexo-guide-2/"/>
     <id>http://blog.firedragonpzy.com.cn/2013/12/12/hexo-guide-2/</id>
     <published>2013-12-12T09:28:53.000Z</published>
-    <updated>2013-12-12T12:47:52.000Z</updated>
+    <updated>2013-12-14T05:04:51.000Z</updated>
     <content type="html"><![CDATA[<hr>
 <p><strong>转载自：</strong><a href="http://zipperary.com/2013/05/29/hexo-guide-3/" target="_blank">http://zipperary.com/2013/05/29/hexo-guide-3/</a><br><strong><code>感谢moxie提供</code></strong></p>
 <p>每日一曲【程序猿太累，休息会吧！】</p>
@@ -740,7 +736,7 @@ CBoxContent* IFactory::getNewBoxContent()
     <link href="http://blog.firedragonpzy.com.cn/2013/12/12/hexo-guide-1/"/>
     <id>http://blog.firedragonpzy.com.cn/2013/12/12/hexo-guide-1/</id>
     <published>2013-12-12T09:28:53.000Z</published>
-    <updated>2013-12-12T12:47:43.000Z</updated>
+    <updated>2013-12-14T05:04:51.000Z</updated>
     <content type="html"><![CDATA[<p><strong>转载自：</strong><a href="http://zipperary.com/2013/05/28/hexo-guide-2/" target="_blank">http://zipperary.com/2013/05/28/hexo-guide-2/</a><br><strong><code>感谢moxie提供</code></strong></p>
 <p>每日一曲【程序猿太累，休息会吧！】</p>
 <embed src="http://www.xiami.com/widget/27050813_1772245372/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>
