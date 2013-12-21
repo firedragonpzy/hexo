@@ -7,4 +7,4 @@ Hello! I am firedragonpzy. [About me][1]
 
   [1]: http://www.firedragonpzy.com.cn/index.php/sample-page
 
-  <embed src="http://www.xiami.com/widget/0_3515679/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>
+  <embed src="http://www.xiami.com/widget/0_1769638209/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>
