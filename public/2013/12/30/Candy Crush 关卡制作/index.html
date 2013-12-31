@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hexo系列教程：（一）搭建hexo博客 转 | Software MyZone</title>
+  <title>Candy Crush 关卡制作 | Software MyZone</title>
   <meta name="author" content="firedragonpzy">
   
   <meta name="description" content="Focus on the development cocos2d-x">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="hexo系列教程：（一）搭建hexo博客 转"/>
+  <meta property="og:title" content="Candy Crush 关卡制作"/>
   <meta property="og:site_name" content="Software MyZone"/>
 
   
@@ -54,88 +54,34 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-12-12T09:28:53.000Z"><a href="/2013/12/12/hexo-guide-1/">12月 12 2013</a></time>
+        <time datetime="2013-12-30T14:45:45.000Z"><a href="/2013/12/30/Candy Crush 关卡制作/">12月 30 2013</a></time>
       
       
   
-    <h1 class="title">hexo系列教程：（一）搭建hexo博客 转</h1>
+    <h1 class="title">Candy Crush 关卡制作</h1>
   
 
     </header>
     <div class="entry">
       
-        <p><strong>转载自：</strong><a href="http://zipperary.com/2013/05/28/hexo-guide-2/" target="_blank">http://zipperary.com/2013/05/28/hexo-guide-2/</a><br><strong><code>感谢moxie提供</code></strong></p>
-<p>每日一曲【程序猿太累，休息会吧！】</p>
-<embed src="http://www.xiami.com/widget/27050813_1772245372/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>
-
-<p>本节来讲讲怎么搭建hexo博客。</p>
-<p><strong>注意</strong>：本节教程只针对Windows用户，Linux和Mac用户请移步<a href="http://zespia.tw/hexo/zh-CN/docs/install.html" target="_blank">hexo安装</a>。<br><a id="more"></a></p>
-<h3>安装Git</h3>
-<p>下载 <a href="http://code.google.com/p/msysgit/" target="_blank">msysgit</a> 并执行即可完成安装。</p>
-<h3>安装Node.js</h3>
-<p>在 Windows 环境下安装 Node.js 非常简单，仅须<a href="http://nodejs.org/" target="_blank">下载</a>安装文件并执行即可完成安装。</p>
-<h3>安装hexo</h3>
-<p>利用 npm 命令即可安装。（在任意位置点击鼠标右键，选择<em>Git bash</em>）</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">npm</span> install -g hexo
-</pre></td></tr></table></figure>
-
-<h3>创建hexo文件夹</h3>
-<p>安装完成后，在你喜爱的文件夹下（如<code>H:\hexo</code>），执行以下指令(在<code>H:\hexo</code>内点击鼠标右键，选择<em>Git bash</em>)，Hexo 即会自动在目标文件夹建立网站所需要的所有文件。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">hexo</span> init
-</pre></td></tr></table></figure>
-
-<h3>本地查看</h3>
-<p>现在我们已经搭建起本地的hexo博客了，执行以下命令(在<code>H:\hexo</code>)，然后到浏览器输入<code>localhost:4000</code>看看。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="title">hexo</span> generate
-<span class="title">hexo</span> server
-</pre></td></tr></table></figure>
-
-<p>好了，至此，本地博客已经搭建起来了，只是本地哦，别人看不到的。下面，我们要部署到Github。</p>
-<h3>注册Github账号</h3>
-<p>已有账号可以跳过，没有的，请<a href="https://github.com/signup/free" target="_blank">在此</a>进行注册，很简单，这里就不介绍了。</p>
-<h3>创建repository</h3>
-<p>在自己<a href="https://github.com/" target="_blank">Github</a>主页右下角，创建一个新的repository。比如我的<a href="https://github.com/" target="_blank">Github</a>账号是<a href="https://github.com/firedragonpzy" target="_blank">firedragonpzy</a>，那么我应该创建的repository名字应该是<code>firedragonpzy.github.io</code>。</p>
-<h3>部署</h3>
-<p>编辑<code>_config.yml</code>(在<code>H:\hexo</code>下)。你在部署时，要把下面的<code>firedragonpzy</code>都换成你的账号名。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="method">deploy:</span>
-  <span class="method">type:</span> github
-  <span class="method">repository:</span> <span class="method">https:</span>//github.com/firedragonpzy/firedragonpzy.github.io.git
-  <span class="method">branch:</span> master
-</pre></td></tr></table></figure>
-
-<p>执行下列指令即可完成部署。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="title">hexo</span> generate
-<span class="title">hexo</span> deploy
-</pre></td></tr></table></figure>
-
-<p><strong>注意：</strong>有些新用户需要设置 ssh，否则上述命令会失败。ssh 的介绍和设置方法请看<a href="https://help.github.com/articles/generating-ssh-keys" target="_blank">官方教程</a>，不用担心，很简单。</p>
-<p><strong>记住：</strong>每次修改本地文件后，需要<code>hexo generate</code>才能保存。每次使用命令时，都要在<code>H:\hexo</code>目录下。</p>
-<p>Okay,我们的博客已经完全搭建起来了，在浏览器访问<code>firedragonpzy.github.io</code>就能看到你的成就了！</p>
-<h3>bugs</h3>
-<ol>
-<li>有网友反应右键菜单中没有<code>git bash</code>选项，可以进入开始菜单找到<code>git bash</code>，然后通过<code>cd</code>进入相应目录执行命令。</li>
-<li>在github部署完成之后，马上访问可能出现404错误，这是正常的，（最多）等待十分钟左右就可以访问了。</li>
-<li>如果在<code>hexo d</code>之后出现<code>fatal: &#39;username.github.io&#39; does not appear to be a git repository</code>，一是检查 repo 的名字是否合乎规范、是否含有大写字母、config.yml 中的 deploy 配置是否正确，二是把 git bash 关掉，重新打开再执行命令。</li>
-</ol>
-<h3>tips</h3>
-<p>hexo现在支持更加简单的命令格式了，比如：</p>
-<p><code>hexo g</code> == <code>hexo generate</code></p>
-<p><code>hexo d</code> == <code>hexo deploy</code></p>
-<p><code>hexo s</code> == <code>hexo server</code></p>
-<p><code>hexo n</code> == <code>hexo new</code></p>
-<p>在下一节中，我们会介绍如何配置自己的网站，如何撰写和发表文章。</p>
+        <p><strong><em>本文为firedragonpzy原创,转载务必在明显处注明：<br>        转载自【Softeware MyZone】原文链接: <a href="http://www.firedragonpzy.com.cn/index.php/archives/4174" target="_blank">http://www.firedragonpzy.com.cn/index.php/archives/4174</a></em></strong></p>
+<p>每日一曲【程序猿,清醒清醒吧！】</p>
+<p><embed src="http://www.xiami.com/widget/0_93357/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed><br>今年最流行的游戏莫过于Candy Crush 和 Clash of Clans，英美排行榜前两名被他们包办，不管是iphone还是ipad。那大家知道它们的选关界面是如何制作的吗？</p>
+<p>最近制作了一款类似游戏，原版是比着Candy Crush制作的，现在和大家分享下关卡的制作。<br><a id="more"></a><br>因为之前做惯了《愤怒的小鸟》这种选关类的游戏，思路立马就是分大关小关，关卡状态分为未开启，开启，过关和购买等等一系列的思维变油然而生。但是在实际的实践中，结合Cocostudio来使用的话，这样子并不是最好的。最好的是……</p>
+<p>呵呵，先说下游戏的数据吧！关于关卡数据这方面，我们需要两个文件，一个是配置文件，一个是数据文件。我想如果考虑关卡类游戏的话，这样个文件足够了，这样的分配也是比较合理的，同时也有利于后期数据的更新，远远好于一个文件搞定全部。</p>
+<p>配置文件即关卡的一些配置，例如关卡中Candy的布局，Candy的类型，移动步数，最终目标等等。</p>
+<p>关于目标和限定条件 ，推荐大家使用字典实现，直接用2dx提供的类即可，已经有写入和读取的功能，大家就不必新开辟道路了。【因为可能限定条件下目标套目标等等，大家自己写xml，节点套节点很费劲，还得自己解析】</p>
+<p>数据文件即游戏过程中产生的数据，即你当前的得分、星星数、关卡状态等等，这其中有个值得注意的地方，那就是关卡的索引。也就是之前我说的结合Cocostudio来使用的话，分大小关卡可能不是最好的。</p>
+<p>在数据文件保存的时候，我们在保存n条数据，也不分关卡了，从0-n即可。这样子在UI和数据提供这方面就好对接了。</p>
+<p>数据提供一个数组给UI，UI遍历下就好，这时候有朋友可能有疑问，大关卡的状态如何判定，这里我们可以用每一大关的 最后一关来判定，例如第一大关10小关，判断10有没有开启，如果10开启了，下一大关开启。这样子带来一个问题就是多了几个逻辑判断，不如用大关小关来的快。还有一个问题就是如果每一大关卡的数量不定的话，就不能很智能的实现大关卡的处理。但是好处就是使用Cocostudio后容易数据关联。</p>
+<p><code>两者各有利弊：</code></p>
+<ul>
+<li>大关小关卡：少了逻辑判断，容易考虑，但是使用Cocostudio后数据不好关联</li>
+<li>小关卡：数据好关联，不能很好的处理各大关卡中小关卡数量不一致的情况。</li>
+</ul>
+<p>反正各有利弊，大家自行选择，期待你们对关卡实现的看法……</p>
 <hr>
-
+<div align="center"><span style="color: red;">欢迎热爱编程的朋友们参与到cocos2d-x编程中，为了给大家提供良好的交流环境，网站以开启QQ群<br>Software MyZone：66202765（群号，欢迎加入,若满，请加1群）<br>Software MyZone 1群(2dx)：286504621<br>【加群请写：Software MyZone或者是firedragonpzy】<br><strong><span style="color: #800000;">淘宝店：<span style="color: #0000ff;"><a href="http://roy-pang.taobao.com" target="_blank"><span style="color: #0000ff;">【应小心的易淘屋】</span></a></span>初次开店，大家多多支持……</span></strong><br>群论坛：<a href="http://bbs.firedragonpzy.com.cn/forum.php" target="_blank"><span style="color: blue;">火龙论坛</span></a>正试运营阶段，欢迎大家多提些建设性意见……</span></div>
       
     </div>
     <footer>
@@ -143,13 +89,13 @@
         
   
   <div class="categories">
-    <a href="/categories/hexo/">hexo</a>
+    <a href="/categories/cocos2d-x/">cocos2d-x</a>
   </div>
 
         
   
   <div class="tags">
-    <a href="/tags/hexo/">hexo</a>
+    <a href="/tags/cocos2d-x/">cocos2d-x</a>
   </div>
 
 
